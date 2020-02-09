@@ -1,5 +1,5 @@
-import { renderTodos, clearNewTodoInput } from './ui'
-import { getAllTodos, addTodo } from './data'
+import { renderTodos, clearNewTodoInput, getTodoId   } from './ui'
+import { getAllTodos, addTodo, removeTodo, udpateTodo } from './data'
 
 function trim(value) {
     return value.trim()
@@ -25,7 +25,8 @@ export function onLoadEventHandler() {
 
 export function newTodoEventHandler(e) {
     let title = e.target.value;
-    title = capitalize(trim(title))
+    // title = capitalize(trim(title))
+    title = title |> trim |> capitalize;
     addTodo({
         id: Date.now(),
         title: title,
@@ -33,4 +34,17 @@ export function newTodoEventHandler(e) {
     })
     renderTodos(getAllTodos())
     clearNewTodoInput()
+}
+
+export function removeTodoEventHandler(e) {
+    const id = getTodoId(e.target)
+    removeTodo(id)
+    renderTodos(getAllTodos())
+}
+
+export function toggleTodoEventListener(e) {
+    const id = getTodoId(e.target)
+    const isCompleted = e.target.checked
+    udpateTodo(id, isCompleted)
+    renderTodos(getAllTodos())
 }
