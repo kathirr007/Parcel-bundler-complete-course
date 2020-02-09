@@ -1,0 +1,20 @@
+{
+  "name": "parcel-bundler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html --open"
+  },
+  "author": "Kathirr007",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "less": "^3.10.3",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.25.0"
+  }
+}
